@@ -3,9 +3,7 @@
     <v-parallax src="../assets/home/covid19.jpg">
       <v-row align="center" justify="center">
         <v-card dark color="rgb(86, 20, 10, 0.75)">
-          <v-card-title class="justify-center">
-            BioTech Hacks
-          </v-card-title>
+          <v-card-title class="justify-center">BioTech Hacks</v-card-title>
           <v-card-text align="center" justify="center">
             A COVID-19 themed Hackathon
             <br />
@@ -50,6 +48,6 @@ export default {
   border-bottom-right-radius: 50% 50%;
   border-bottom-left-radius: 50% 50%;
   max-width: 300px;
-  max-height: 300px;
+  max-height: 200px;
 }
 </style>

@@ -4,8 +4,8 @@ export const Rules = Object.freeze({
   phoneRules: [
     v =>
       /^(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}$/.test(v) ||
-      'Phone must be valid',
-  ],
+      'Phone must be valid'
+  ]
 })
 
 export const APPLICATION_FIELDS = [
@@ -14,28 +14,28 @@ export const APPLICATION_FIELDS = [
     label: 'First Name',
     type: 'textField',
     rules: Rules.required('First Name'),
-    md: '6',
+    md: '6'
   },
   {
     name: 'last_name',
     label: 'Last Name',
     type: 'textField',
     rules: Rules.required('Last Name'),
-    md: '6',
+    md: '6'
   },
   {
     name: 'email',
     label: 'E-mail',
     type: 'textField',
     rules: [...Rules.required('E-mail'), ...Rules.emailRules],
-    md: '4',
+    md: '4'
   },
   {
     name: 'phone',
     label: 'Phone',
     type: 'textField',
     rules: [...Rules.required('Phone'), ...Rules.phoneRules],
-    md: '4',
+    md: '4'
   },
   {
     name: 'gender',
@@ -43,7 +43,7 @@ export const APPLICATION_FIELDS = [
     type: 'select',
     rules: Rules.required('Gender'),
     md: '4',
-    items: ['Male', 'Female', 'Other'],
+    items: ['Male', 'Female', 'Other']
   },
   {
     name: 'diet_restrictions',
@@ -51,7 +51,7 @@ export const APPLICATION_FIELDS = [
     type: 'combobox',
     rules: Rules.required('Dietary Resctrictions'),
     md: '4',
-    items: ['None', 'Vegetarian', 'Vegan', 'Gluten Free', 'Halal'],
+    items: ['None', 'Vegetarian', 'Vegan', 'Gluten Free', 'Halal']
   },
   {
     name: 'major',
@@ -64,8 +64,8 @@ export const APPLICATION_FIELDS = [
       'Bio Medical Engineering',
       'Electrical Engineering',
       'Computer Engineering',
-      'Computer Science',
-    ],
+      'Computer Science'
+    ]
   },
   {
     name: 'class',
@@ -73,7 +73,7 @@ export const APPLICATION_FIELDS = [
     type: 'select',
     rules: Rules.required('Class'),
     md: '4',
-    items: ['Freshman', 'Sophomore', 'Junior', 'Senior', 'Super-Senior'],
+    items: ['Freshman', 'Sophomore', 'Junior', 'Senior', 'Super-Senior']
   },
   {
     name: 'resume',
@@ -82,6 +82,6 @@ export const APPLICATION_FIELDS = [
     accept: 'image/*',
     icon: 'mdi-file-upload',
     rules: Rules.required('Resume'),
-    md: '4',
-  },
+    md: '4'
+  }
 ]

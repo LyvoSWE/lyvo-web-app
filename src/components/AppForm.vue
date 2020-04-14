@@ -51,8 +51,8 @@
           class="mr-4"
           @click="submitApplication"
           >Submit</v-btn
-        ></v-row
-      >
+        >
+      </v-row>
     </v-container>
   </v-form>
 </template>
@@ -62,17 +62,22 @@ import { mapActions } from 'vuex'
 import { constants } from '../utils/constants'
 
 export default {
-  data: () => ({
-    valid: false,
-    APPLICATION_FIELDS: constants.APPLICATION_FIELDS,
-    applicant: {},
-  }),
+  data() {
+    return {
+      valid: false,
+      APPLICATION_FIELDS: constants.APPLICATION_FIELDS,
+      applicant: {}
+    }
+  },
   methods: {
     submitApplication() {
       if (this.$refs.form.validate()) {
-        this.$store.dispatch('submitApplication', this.applicant)
+        this.$store.dispatch(
+          'submitApplication',
+          this.applicant
+        )
       }
-    },
-  },
+    }
+  }
 }
 </script>

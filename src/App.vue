@@ -45,18 +45,41 @@
       </v-container>
     </v-content>
 
-    <v-footer app>
-      <!-- -->
+    <v-footer app absolute>
+      <v-card flat tile width="100vw" class="accent white--text text-center">
+        <v-card-text>
+          <!-- How to link with a button https://stackoverflow.com/a/58299637 -->
+          <v-btn
+            v-for="icon in APP.icons"
+            :key="icon"
+            class="mx-4 white--text"
+            icon
+            :href="icon.link"
+            target="_blank"
+          >
+            <v-icon size="24px">{{ icon.name }}</v-icon>
+          </v-btn>
+        </v-card-text>
+
+        <v-divider></v-divider>
+
+        <v-card-text class="white--text">
+          {{ new Date().getFullYear() }} —
+          <strong>BioTech Hacks</strong>
+        </v-card-text>
+      </v-card>
     </v-footer>
   </v-app>
 </template>
 
 <script>
+import { constants } from '@/utils/constants'
 export default {
   name: 'App',
   data() {
     return {
-      drawer: false
+      drawer: false,
+      APP: constants.APP
     }
   },
   components: {
