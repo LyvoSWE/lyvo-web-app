@@ -65,14 +65,14 @@ export default {
   data: () => ({
     valid: false,
     APPLICATION_FIELDS: constants.APPLICATION_FIELDS,
-    applicant: {},
+    applicant: {}
   }),
   methods: {
     submitApplication() {
       if (this.$refs.form.validate()) {
         this.$store.dispatch('submitApplication', this.applicant)
       }
-    },
-  },
+    }
+  }
 }
 </script>
