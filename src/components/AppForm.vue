@@ -2,31 +2,44 @@
   <v-form ref="form" v-model="valid">
     <v-container>
       <v-row>
-        <v-col cols="12" md="4">
+        <v-col
+          v-for="(field, i) in APPLICATION_FIELDS"
+          :key="i"
+          cols="12"
+          :md="field.md"
+        >
           <v-text-field
-            v-model="applicant.firstname"
-            :rules="nameRules"
-            label="First name"
-            required
-          ></v-text-field>
-        </v-col>
-
-        <v-col cols="12" md="4">
-          <v-text-field
-            v-model="applicant.lastname"
-            :rules="nameRules"
-            label="Last name"
-            required
-          ></v-text-field>
-        </v-col>
-
-        <v-col cols="12" md="4">
-          <v-text-field
-            v-model="applicant.email"
-            :rules="emailRules"
-            label="E-mail"
-            required
-          ></v-text-field>
+            v-if="field.type === 'textField'"
+            v-model="applicant[field.name]"
+            :rules="field.rules"
+            :label="field.label"
+          />
+          <v-select
+            v-else-if="field.type === 'select'"
+            v-model="applicant[field.name]"
+            :rules="field.rules"
+            :label="field.label"
+            :items="field.items"
+          />
+          <v-combobox
+            v-else-if="field.type === 'combobox'"
+            v-model="applicant[field.name]"
+            :rules="field.rules"
+            :label="field.label"
+            :items="field.items"
+            multiple
+            hide-selected
+            persistent-hint
+            small-chips
+            clearable
+          />
+          <v-file-input
+            v-else-if="field.type === 'fileInput'"
+            :accept="field.accept"
+            :label="field.label"
+            :prepend-icon="field.icon"
+            :rules="field.rules"
+          />
         </v-col>
       </v-row>
       <v-row>
@@ -46,16 +59,13 @@
 
 <script>
 import { mapActions } from 'vuex'
+import { constants } from '../utils/constants'
 
 export default {
   data: () => ({
     valid: false,
+    APPLICATION_FIELDS: constants.APPLICATION_FIELDS,
     applicant: {},
-    nameRules: [v => !!v || 'Name is required'],
-    emailRules: [
-      v => !!v || 'E-mail is required',
-      v => /.+@.+/.test(v) || 'E-mail must be valid',
-    ],
   }),
   methods: {
     submitApplication() {

@@ -8,14 +8,13 @@ import {
   SUBMIT_REQUEST,
   SUBMIT_SUCCESS,
   SUBMIT_FAILURE,
-  RESET_ALERT,
+  RESET_ALERT
 } from './mutation-types'
 
 const initialState = {
-  alert: false,
   alertMsg: '',
   alertType: '',
-  loading: false,
+  loading: false
 }
 
 export default new Vuex.Store({
@@ -25,28 +24,25 @@ export default new Vuex.Store({
       state.loading = true
     },
     [SUBMIT_SUCCESS](state) {
-      state.alert = true
       state.alertMsg = 'Submission successful'
       state.loading = false
       state.alertType = 'success'
     },
     [SUBMIT_FAILURE](state) {
-      state.alert = true
       state.alertMsg = 'Submission failed'
       state.loading = false
       state.alertType = 'error'
     },
     [RESET_ALERT](state) {
-      state.alert = false
       state.alertMsg = ''
       state.alertType = ''
-    },
+    }
   },
   actions: {
     async submitApplication({ commit }, postData) {
       commit(SUBMIT_REQUEST)
       try {
-        //payload = await httpPost('', postData)
+        // payload = await httpPost('', postData)
         commit(SUBMIT_SUCCESS)
       } catch (e) {
         console.log(e)
@@ -54,9 +50,9 @@ export default new Vuex.Store({
       } finally {
         setTimeout(() => commit(RESET_ALERT), 5000)
       }
-    },
+    }
   },
-  modules: {},
+  modules: {}
 })
 
 const httpPost = async (apiEndpoint, postData) => {
@@ -64,6 +60,6 @@ const httpPost = async (apiEndpoint, postData) => {
     method: 'POST',
     url: apiEndpoint,
     data: postData,
-    config: { headers: { 'Content-Type': 'application/json' } },
+    config: { headers: { 'Content-Type': 'application/json' } }
   })
 }
