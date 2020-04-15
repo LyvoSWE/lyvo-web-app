@@ -72,10 +72,7 @@ export default {
   methods: {
     submitApplication() {
       if (this.$refs.form.validate()) {
-        this.$store.dispatch(
-          'submitApplication',
-          this.applicant
-        )
+        this.$store.dispatch('submitApplication', this.applicant)
       }
     }
   }
