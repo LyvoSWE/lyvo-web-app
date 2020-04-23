@@ -60,11 +60,13 @@ export const APPLICATION_FIELDS = [
     rules: Rules.required('Major'),
     md: '4',
     items: [
-      'Material Science Engineering',
-      'Bio Medical Engineering',
-      'Electrical Engineering',
-      'Computer Engineering',
-      'Computer Science'
+      'Material Science',
+      'Biomedical',
+      'Electrical',
+      'Computer Science and Engineering',
+      'Computer Science',
+      'Mechanical',
+      'Aerospace'
     ]
   },
   {
@@ -73,7 +75,7 @@ export const APPLICATION_FIELDS = [
     type: 'select',
     rules: Rules.required('Class'),
     md: '4',
-    items: ['Freshman', 'Sophomore', 'Junior', 'Senior', 'Super-Senior']
+    items: ['Freshman', 'Sophomore', 'Junior', 'Senior', 'Super Senior']
   },
   {
     name: 'resume',

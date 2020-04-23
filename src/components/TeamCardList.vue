@@ -7,15 +7,16 @@
       :key="i"
     >
       {{ category }}
-      <v-divider role="presentation" />
       <v-row align="center" justify="center">
         <v-col
           v-for="(member, i) in TEAM[TEAM.length - page][category]"
           :key="i"
           cols="12"
+          sm="4"
           md="3"
+          lg="2"
         >
-          <v-card height="200">
+          <v-card height="220">
             <v-img :src="imgAppendLocation(member.img)" class="member-image" />
             <v-card-title class="title">
               <a :href="member.linkedIn" v-text="member.name" />

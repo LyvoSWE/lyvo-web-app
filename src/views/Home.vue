@@ -14,7 +14,7 @@
     </v-parallax>
 
     <v-row align="center" justify="center">
-      <v-col v-for="(card, i) in HOME.cards" :key="i" cols="12" md="4">
+      <v-col v-for="(card, i) in HOME.cards" :key="i" cols="12" sm="6" md="4">
         <v-card align="center" justify="center">
           <v-img class="home-image" :src="imgAppendLocation(card.img)" />
           <v-card-title class="title" v-text="card.title" />

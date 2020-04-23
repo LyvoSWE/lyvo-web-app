@@ -6,7 +6,7 @@
           v-for="(field, i) in APPLICATION_FIELDS"
           :key="i"
           cols="12"
-          :md="field.md"
+          :sm="field.md"
         >
           <v-text-field
             v-if="field.type === 'textField'"
@@ -42,17 +42,15 @@
           />
         </v-col>
       </v-row>
-      <v-row>
-        <v-btn
-          :disabled="$store.state.loading"
-          :loading="$store.state.loading"
-          block
-          color="primary"
-          class="mr-4"
-          @click="submitApplication"
-          >Submit</v-btn
-        >
-      </v-row>
+      <v-btn
+        :disabled="$store.state.loading"
+        :loading="$store.state.loading"
+        block
+        color="primary"
+        class="mr-4"
+        @click="submitApplication"
+        >Submit</v-btn
+      >
     </v-container>
   </v-form>
 </template>

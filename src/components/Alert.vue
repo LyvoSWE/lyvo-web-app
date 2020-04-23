@@ -23,7 +23,7 @@ export default {
 <style scoped>
 .alert {
   position: fixed;
-  z-index: 1;
+  z-index: 5;
   width: 100%;
   display: flex;
   justify-content: center;
