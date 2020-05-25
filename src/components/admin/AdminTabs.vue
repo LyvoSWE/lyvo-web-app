@@ -33,15 +33,6 @@ export default {
     return {
       tab: null
     }
-  },
-  methods: {
-    getApplicantCollection() {
-      if (!this.$store.state.applicants.length) {
-        this.$store.dispatch('getApplicantCollection')
-      }
-    }
   }
 }
 </script>
-
-<style></style>

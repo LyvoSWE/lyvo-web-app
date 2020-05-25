@@ -1,19 +1,18 @@
 import axios from 'axios'
 
-const urlPrefix = 'https://us-central1-lyvo-4c9fa.cloudfunctions.net/app'
+export const urlPrefix = 'https://us-central1-lyvo-demo.cloudfunctions.net/app'
+
+const config = { headers: { 'Content-Type': 'application/json' } }
 
 export const httpPost = async (apiEndpoint, postData) => {
-  await axios({
-    method: 'POST',
-    url: `${urlPrefix}${apiEndpoint}`,
+  return axios.post(`${urlPrefix}${apiEndpoint}`, {
     data: postData,
-    config: { headers: { 'Content-Type': 'application/json' } }
+    config
   })
 }
 
-export const httpGet = async (apiEndpoint, params) => {
-  const resp = await axios.get(`${urlPrefix}${apiEndpoint}`, {
-    params
+export const httpGet = async apiEndpoint => {
+  return axios.get(`${urlPrefix}${apiEndpoint}`, {
+    config
   })
-  return resp.data
 }

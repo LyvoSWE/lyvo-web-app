@@ -48,7 +48,7 @@ export default {
     }
   },
   mounted() {
-    //statistics could have also loaded this data
+    //applicantTable could have also loaded this data
     console.log('Getting collection from backend..')
     if (!this.$store.state.applicants.length) {
       this.$store.dispatch('getApplicantCollection')

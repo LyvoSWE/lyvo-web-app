@@ -1,20 +1,23 @@
-import { mount, createLocalVue } from '@vue/test-utils'
+import { mount } from '@vue/test-utils'
+import Vue from 'vue'
 import Vuex from 'vuex'
 import Vuetify from 'vuetify'
 
 import AppForm from '@/components/AppForm'
 import initialState from '@/store/initialState'
 
-const localVue = createLocalVue()
+import testApplicant from '../utils/testApplicant'
 
-localVue.use(Vuex)
-localVue.use(Vuetify)
+Vue.use(Vuex)
+Vue.use(Vuetify)
 
 describe('AppForm.vue', () => {
   let vuetify
   let actions
   let state
   let store
+
+  let wrapper
 
   beforeEach(() => {
     vuetify = new Vuetify()
@@ -29,22 +32,15 @@ describe('AppForm.vue', () => {
       state,
       actions
     })
-  })
 
-  it('calls store action "submitApplication" when button is clicked', async () => {
-    const wrapper = mount(AppForm, { localVue, vuetify, store })
-    // ONLY test input or select fields as setValue() will not work
-    const testApplicant = {
-      first_name: 'Joe',
-      last_name: 'Blake',
-      email: 'blake@gmail.com',
-      phone: '111-111-1111',
-      gender: 'Male',
-      class: 'Freshman'
-    }
+    wrapper = mount(AppForm, { Vue, vuetify, store })
+
     Object.keys(testApplicant).forEach(field =>
       wrapper.find(`#${field}`).setValue(testApplicant[field])
     )
+  })
+
+  it('calls store action "submitApplication" when button is clicked and validation is correct', () => {
     sinon.stub(wrapper.vm.$refs.form, 'validate').returns(true)
     wrapper.vm.$on('action-btn:clicked', wrapper.vm.submitApplication)
 
@@ -54,5 +50,13 @@ describe('AppForm.vue', () => {
       sinon.match.any,
       testApplicant
     )
+  })
+  it('calls does not store action "submitApplication" when button is clicked and validation is not correct', () => {
+    sinon.stub(wrapper.vm.$refs.form, 'validate').returns(false)
+    wrapper.vm.$on('action-btn:clicked', wrapper.vm.submitApplication)
+
+    wrapper.find('.v-btn').trigger('click')
+
+    expect(actions.submitApplication).to.have.been.not.calledOnce
   })
 })

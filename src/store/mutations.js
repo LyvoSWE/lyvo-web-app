@@ -4,12 +4,11 @@ import {
   SUBMIT_REQUEST,
   SUBMIT_SUCCESS,
   SUBMIT_FAILURE,
-  RESET_ALERT
+  RESET_ALERT,
+  RETRIEVE_REQUEST,
+  RETRIEVE_SUCCESS,
+  RETRIEVE_FAILURE
 } from './mutation-types'
-
-const RETRIEVE_REQUEST = 'RETRIEVE_REQUEST'
-const RETRIEVE_SUCCESS = 'RETRIEVE_SUCCESS'
-const RETRIEVE_FAILURE = 'RETRIEVE_FAILURE'
 
 export default {
   [SUBMIT_REQUEST](state) {
@@ -29,12 +28,17 @@ export default {
     state.alertMsg = ''
     state.alertType = ''
   },
-  [RETRIEVE_REQUEST](state) {},
-  [RETRIEVE_SUCCESS](state, payload) {
-    state.applicants = payload.apps
-    state.data = createGraphData(state.applicants)
+  [RETRIEVE_REQUEST](state) {
+    state.retrieveRequestLoading = true
   },
-  [RETRIEVE_FAILURE](state) {}
+  [RETRIEVE_SUCCESS](state, payload) {
+    state.applicants = payload.data.apps
+    state.data = createGraphData(state.applicants)
+    state.retrieveRequestLoading = true
+  },
+  [RETRIEVE_FAILURE](state) {
+    state.retrieveRequestLoading = false
+  }
 }
 
 const createGraphData = applicants => {
