@@ -76,14 +76,5 @@ export const APPLICATION_FIELDS = [
     rules: Rules.required('Class'),
     md: '4',
     items: ['Freshman', 'Sophomore', 'Junior', 'Senior', 'Super Senior']
-  },
-  {
-    name: 'resume',
-    label: 'Resume',
-    type: 'fileInput',
-    accept: 'image/*',
-    icon: 'mdi-file-upload',
-    rules: Rules.required('Resume'),
-    md: '4'
   }
 ]

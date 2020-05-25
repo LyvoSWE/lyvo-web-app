@@ -5,7 +5,7 @@ import { HOME } from './constants/home'
 import { APP } from './constants/app'
 import { ADMIN } from './constants/admin'
 
-export const constants = Object.freeze({
+export default Object.freeze({
   APPLICATION_FIELDS,
   FAQS,
   TEAM,

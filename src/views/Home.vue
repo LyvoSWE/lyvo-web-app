@@ -26,7 +26,7 @@
 </template>
 
 <script>
-import { constants } from '../utils/constants'
+import constants from '../utils/constants'
 
 export default {
   name: 'Home',

@@ -24,7 +24,7 @@
 import Highcharts from 'highcharts'
 import { genComponent } from 'vue-highcharts'
 
-import { constants } from '@/utils/constants'
+import constants from '@/utils/constants'
 export default {
   name: 'Statistics',
   components: {
@@ -39,7 +39,7 @@ export default {
         },
         series: [
           {
-            name: 'Gender',
+            name: `${chart}`,
             colorByPoint: true,
             data: this.$store.state.data[chart]
           }

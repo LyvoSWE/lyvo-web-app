@@ -10,12 +10,14 @@
         >
           <v-text-field
             v-if="field.type === 'textField'"
+            :id="field.name"
             v-model="applicant[field.name]"
             :rules="field.rules"
             :label="field.label"
           />
           <v-select
             v-else-if="field.type === 'select'"
+            :id="field.name"
             v-model="applicant[field.name]"
             :rules="field.rules"
             :label="field.label"
@@ -23,6 +25,7 @@
           />
           <v-combobox
             v-else-if="field.type === 'combobox'"
+            :id="field.name"
             v-model="applicant[field.name]"
             :rules="field.rules"
             :label="field.label"
@@ -32,13 +35,6 @@
             persistent-hint
             small-chips
             clearable
-          />
-          <v-file-input
-            v-else-if="field.type === 'fileInput'"
-            :accept="field.accept"
-            :label="field.label"
-            :prepend-icon="field.icon"
-            :rules="field.rules"
           />
         </v-col>
       </v-row>
@@ -56,8 +52,7 @@
 </template>
 
 <script>
-import { mapActions } from 'vuex'
-import { constants } from '../utils/constants'
+import constants from '../utils/constants'
 
 export default {
   data() {
