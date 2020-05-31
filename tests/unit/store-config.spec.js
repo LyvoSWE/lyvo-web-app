@@ -11,7 +11,6 @@ import testApplicant from '../utils/testApplicant'
 
 const localVue = createLocalVue()
 localVue.use(Vuex)
-const store = new Vuex.Store(cloneDeep(storeConfig))
 
 const config = {
   headers: { 'Content-Type': 'application/json' }
