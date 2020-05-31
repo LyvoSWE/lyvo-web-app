@@ -1,7 +1,6 @@
 # lyvo-web-app
 
-https://github.com/LyvoSWE/lyvo-web-app/workflows/build.yaml
-/badge.svg
+![Node.js CI](https://github.com/LyvoSWE/lyvo-web-app/workflows/Node.js%20CI/badge.svg)
 
 ## Project setup
 
