@@ -8,7 +8,7 @@ on:
 
 jobs:
   build:
-    runs-on: macos-latest
+    runs-on: ubuntu-latest
 
     strategy:
       matrix:
@@ -23,10 +23,7 @@ jobs:
       - name: Install Dependencies
         run: npm install
       - name: Test
-        run: npm test
-        env:
-          CI: true
-      - run: npm run cover
+        run: npm run cover
         env:
           CI: true
       - name: Upload coverage to Codecov
@@ -45,7 +42,7 @@ jobs:
   deploy:
     name: Deploy
     needs: build
-    runs-on: macos-latest
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout Repo
         uses: actions/checkout@master
@@ -61,4 +58,4 @@ jobs:
         with:
           args: deploy --only hosting
         env:
-          FIREBASE_TOKEN: 1//0fIyApqoSnhlOCgYIARAAGA8SNwF-L9Ir1Rmo8EOjotPUB29rtCHY1gY92K-Acnbb5VCMwU9vu9ds7KXKPN6KBVFfZ4utW-TJ6B0
+          FIREBASE_TOKEN: '1//0fIyApqoSnhlOCgYIARAAGA8SNwF-L9Ir1Rmo8EOjotPUB29rtCHY1gY92K-Acnbb5VCMwU9vu9ds7KXKPN6KBVFfZ4utW-TJ6B0'
