@@ -1,6 +1,6 @@
 # lyvo-web-app
 
-![build](https://github.com/LyvoSWE/lyvo-web-app/workflows/build/badge.svg)
+![build](https://github.com/LyvoSWE/lyvo-web-app/workflows/build_deploy/badge.svg)
 [![codecov](https://codecov.io/gh/LyvoSWE/lyvo-web-app/branch/master/graph/badge.svg)](https://codecov.io/gh/LyvoSWE/lyvo-web-app)
 
 ## Project setup
