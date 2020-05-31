@@ -1,6 +1,8 @@
 # lyvo-web-app
 
-![Node.js CI](https://github.com/LyvoSWE/lyvo-web-app/workflows/Node.js%20CI/badge.svg)
+![build](https://github.com/LyvoSWE/lyvo-web-app/workflows/Node.js%20CI/badge.svg)
+
+[![codecov](https://codecov.io/gh/LyvoSWE/lyvo-web-app/branch/master/graph/badge.svg)](https://codecov.io/gh/LyvoSWE/lyvo-web-app)
 
 ## Project setup
 

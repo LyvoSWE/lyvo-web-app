@@ -30,3 +30,4 @@ jobs:
           file: ./coverage/clover.xml
           flags: unittests
           name: codecov-umbrella
+          fail_ci_if_error: true # optional (default = false)
