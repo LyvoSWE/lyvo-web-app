@@ -34,28 +34,28 @@ jobs:
           name: codecov-umbrella
       - name: Build
         run: npm run build --if-present
-  #     - name: Archive Production Artifact
-  #       uses: actions/upload-artifact@master
-  #       with:
-  #         name: dist
-  #         path: dist
-  # deploy:
-  #   name: Deploy
-  #   needs: build
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - name: Checkout Repo
-  #       uses: actions/checkout@master
-  #       with:
-  #         repository: sajadmaysam/lyvo-backend-session2
-  #     - name: Download Artifact
-  #       uses: actions/download-artifact@master
-  #       with:
-  #         name: dist
-  #         path: public
-  #     - name: Deploy to Firebase
-  #       uses: w9jds/firebase-action@master
-  #       with:
-  #         args: deploy --only hosting
-  #       env:
-  #         FIREBASE_TOKEN: '1//0fIyApqoSnhlOCgYIARAAGA8SNwF-L9Ir1Rmo8EOjotPUB29rtCHY1gY92K-Acnbb5VCMwU9vu9ds7KXKPN6KBVFfZ4utW-TJ6B0'
+      - name: Archive Production Artifact
+        uses: actions/upload-artifact@master
+        with:
+          name: dist
+          path: dist
+  deploy:
+    name: Deploy
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@master
+        with:
+          repository: sajadmaysam/lyvo-backend-session2
+      - name: Download Artifact
+        uses: actions/download-artifact@master
+        with:
+          name: dist
+          path: public
+      - name: Deploy to Firebase
+        uses: w9jds/firebase-action@master
+        with:
+          args: deploy --only hosting
+        env:
+          FIREBASE_TOKEN: '1//0fIyApqoSnhlOCgYIARAAGA8SNwF-L9Ir1Rmo8EOjotPUB29rtCHY1gY92K-Acnbb5VCMwU9vu9ds7KXKPN6KBVFfZ4utW-TJ6B0'
