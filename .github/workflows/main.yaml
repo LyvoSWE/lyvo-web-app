@@ -32,6 +32,7 @@ jobs:
           file: ./coverage/clover.xml
           flags: unittests
           name: codecov-umbrella
+          fail_ci_if_error: true
       - name: Build
         run: npm run build --if-present
       - name: Archive Production Artifact
